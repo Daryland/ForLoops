@@ -6,9 +6,21 @@
 // NOTE: You can NOT use the array.flat() method in your code
 
 export function flatArrays(array) {
-  // Your code goes here...
-
+  const result = [];
+  const stack = [...array];
+  while (stack.length) {
+    const current = stack.pop();
+    if (Array.isArray(current)) {
+      stack.push(...current);
+    } else {
+      result.unshift(current);
+    }
+  }
+  return result;
 }
+
+
+
 
 
 
